@@ -1,0 +1,36 @@
+body {
+    background-color: var(--body-grey);
+    /* background-color: var(--red) */
+     
+}
+
+.home {
+
+    margin: 0 auto;
+    padding: 2rem 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.cards {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+}
+
+.home h2{
+ 
+    line-height: 1.75;
+   
+    /* color: red; */
+}
+
+.home p{
+     color: var(--tx);
+    
+}

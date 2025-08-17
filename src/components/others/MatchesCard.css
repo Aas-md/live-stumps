@@ -1,0 +1,85 @@
+
+
+.card {
+    margin-bottom: 1.5rem;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #ffffff;
+    transition: box-shadow, transform 300ms ease-in-out;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+  
+}
+
+.card .team img{
+
+    margin-right: 0.5rem;
+
+}
+.card .team span{
+
+    color:black;
+
+}
+.card .team span{
+    font-weight: 600;
+}
+
+.card .box {
+
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem 1rem;
+}
+
+.card .box1 h2 {
+    margin-bottom: 0.5rem;
+}
+
+.card hr {
+    opacity: 0.2;
+    margin: 0 1rem 0 1rem;
+}
+
+
+.card span,
+.card>button {
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+   
+
+}
+
+.card .score span {
+    font-weight: 700;
+
+}
+
+.card .live {
+    color: var(--orange);
+    margin-top: 0.5;
+   
+}
+
+.card .live+button {
+    color: var(--blue);
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    border: none;
+    background-color: white;
+    font-size: 1rem;
+}
+
+/* hover */
+
+.card:hover {
+    box-shadow: 2px 2px 1px lightgray;
+    transform: translateY(-4px);
+}
