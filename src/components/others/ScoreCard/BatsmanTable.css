@@ -1,16 +1,4 @@
-table {
-    width: 100%;
-    border-collapse: collapse;
-
-
-}
-
-table td,
-table th {
-    text-align: start;
-}
-
-#battingSection {
+.bat-table {
 
     display: flex;
     flex-wrap: wrap;
@@ -18,36 +6,43 @@ table th {
     justify-content: space-evenly;
     align-content: space-around;
 }
-.scorecard-section {
-    margin-top: 1rem;
+
+.bat-table td,
+.bat-table th {
+    text-align: start;
+    padding: 8px 12px;
 }
 
-.scorecard-section table {
+
+.bat-table {
+    margin-top: 1rem;
+    /* background-color: red; */
+}
+
+table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 0;
 }
 
-.scorecard-section th,
-.scorecard-section td {
-    padding: 8px 12px;
-}
-
-.scorecard-section th {
+.bat-table th {
     background: #f8f9fa;
     text-align: left;
-}
-
-
-.scorecard-section td:last-child,
-.scorecard-section th:last-child {
-    text-align: right;
-
-}
-
-th {
     color: var(--tx-light);
     font-weight: 500;
     font-size: 0.8rem;
     line-height: 1;
+}
+
+
+.bat-table td:last-child,
+.bat-table th:last-child {
+    text-align: right;
+
+}
+
+
+table tr:last-child {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    position: relative;
 }

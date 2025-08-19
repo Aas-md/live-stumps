@@ -5,3 +5,13 @@
    
 
 }
+
+.active {
+
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-light);
+    color: white;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+}

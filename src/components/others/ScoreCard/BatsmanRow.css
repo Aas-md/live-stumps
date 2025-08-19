@@ -1,0 +1,46 @@
+.player-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+}
+
+.player-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-row td {
+    background: #fff;
+    border-top: 1px solid color-mix(in srgb, var(--tx-light), transparent 80%);
+    color: var(--tx);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+
+.player-row td:first-child {
+
+    text-align: left;
+    border-left: 1px solid color-mix(in srgb, var(--tx-light), transparent 80%);
+
+}
+
+table td:last-child {
+    border-right: 1px solid color-mix(in srgb, var(--tx-light), transparent 80%);
+}
+
+.player-info .player-name span:first-child {
+    color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+    font-weight: 500;
+    font-size: 1rem;
+
+}
+
+.player-info img {
+
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+
+}

@@ -1,10 +1,10 @@
 import BatsmanRow from "./BatsmanRow";
 import './BatsmanTable.css'
 
-export default function BatsmanTable(){
-
+export default function BatsmanTable({batting}){
+    // console.log(team1)
     return (
-         <div className="scorecard-section" id="batting-section-1">
+         <div className="bat-table">
                 <table>
                     <thead>
                         <tr>
@@ -19,7 +19,11 @@ export default function BatsmanTable(){
                     </thead>
 
                     <tbody id="batting-data-1">
-
+                        {
+                            batting?.map((player,idx)=>(
+                               <BatsmanRow key={idx} player={player}/>
+                            ))
+                        }
                     </tbody>
 
 
