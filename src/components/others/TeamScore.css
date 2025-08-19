@@ -1,0 +1,85 @@
+.team-score img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.team-score {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: white;
+    padding: 1rem;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.team-score .team .team-header {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    justify-content: center;
+
+}
+
+.team-score .team .team-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.team-score .team {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.team-score .team-header h2 {
+    color: var(--tx-bold);
+    font-weight: 700;
+}
+
+.team-score .team-stats .scoreSpan {
+    color: var(--tx-bold);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.team-score .runrateSpan {
+    color: var(--tx-light);
+    line-height: 1.25rem;
+
+}
+
+.team-score .team {
+    margin-bottom: 1rem;
+}
+
+.team-score hr {
+    color: var(--tx-light);
+    opacity: 0.2;
+}
+
+.team-score .target {
+    line-height: 1.25rem;
+
+}
+
+.target span {
+    color: var(--tx);
+    font-size: 0.85rem;
+}
+
+.target span:first-child{
+
+    font-weight: 600;
+ 
+}
+
+.match-summary {
+    margin-top: 1rem;
+}

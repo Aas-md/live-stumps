@@ -1,4 +1,4 @@
-const liveMathces = [
+const scheduleMatches = [
   {
     id: "d54c93cc-abd1-44c7-a534-ede33788e69e",
     name: "singapure vs some thing else, 1st T20I",
@@ -6,11 +6,11 @@ const liveMathces = [
     status: "Singapore Women won by 125 runs",
     venue: "Singapore National Cricket Ground, Singapore",
     dateTimeGMT: "2025-08-13T04:30:00",
-    matchStarted: true,
-    matchEnded: true,
+    matchStarted: false,
+    matchEnded: false,
 
-    team1: { name: "pakistan", shortName: "Pak", img: "https://shorturl.at/7fbYU", score: "12/2 (2.4)" },
-    team2: { name: "West Indies", shortName: "WI", img: "https://shorturl.at/7fbYU", score: "45/1 (5.0)" },
+    team1: { name: "pakistan", shortName: "Pak", img: "https://shorturl.at/7fbYU", score: "0/0 (0)" },
+    team2: { name: "West Indies", shortName: "WI", img: "https://shorturl.at/7fbYU", score: "0/0 (0)" },
 
     teams: [
       "pakistan",
@@ -32,15 +32,15 @@ const liveMathces = [
       name: "India",
       shortName: "IND",
       img: "https://shorturl.at/7fbYU",
-      score: "165/5 (18.2)"
+      score: "0/0 (0)"
     },
     team2: {
       name: "Pakistan",
       shortName: "PAK",
       img: "https://shorturl.at/7fbYU",
-      score: "162/7 (20.0)"
+      score: "0/0 (0)"
     },
-    matchStarted: true,
+    matchStarted: false,
     matchEnded: false
   },
   {
@@ -55,13 +55,13 @@ const liveMathces = [
       name: "Bangladesh",
       shortName: "BAN",
       img: "https://h.cricapi.com/img/icon512.png",
-      score: "145/9 (20.0)"
+      score: "0/0 (0)"
     },
     team2: {
       name: "Australia",
       shortName: "AUS",
       img: "https://h.cricapi.com/img/icon512.png",
-      score: "165/6 (20.0)"
+      score: "0/0 (0)"
     },
     matchStarted: false,
     matchEnded: false
@@ -78,15 +78,15 @@ const liveMathces = [
       name: "England",
       shortName: "ENG",
       img: "https://h.cricapi.com/img/icon512.png",
-      score: "158/7 (19.4)"
+      score:"0/0 (0)"
     },
     team2: {
       name: "South Africa",
       shortName: "SA",
       img: "https://h.cricapi.com/img/icon512.png",
-      score: "156/8 (20.0)"
+      score: "0/0 (0)"
     },
-    matchStarted: true,
+    matchStarted: false,
     matchEnded: false
   },
   {
@@ -101,13 +101,13 @@ const liveMathces = [
       name: "Sri Lanka",
       shortName: "SL",
       img: "https://h.cricapi.com/img/icon512.png",
-      score: "142/6 (20.0)"
+      score: "0/0 (0)"
     },
     team2: {
       name: "New Zealand",
       shortName: "NZ",
       img: "https://h.cricapi.com/img/icon512.png",
-      score: "143/2 (17.5)"
+      score: "0/0 (0)"
     },
     matchStarted: true,
     matchEnded: true
@@ -160,4 +160,4 @@ const liveMathces = [
   }
 ]
 
-export default liveMathces
+export default scheduleMatches

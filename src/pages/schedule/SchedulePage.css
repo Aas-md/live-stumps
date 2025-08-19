@@ -1,4 +1,4 @@
-.home {
+.schedule {
 
     margin: 0 auto;
     padding: 2rem 4rem;
@@ -17,14 +17,14 @@
 
 }
 
-.home h2{
+.schedule h2{
  
     line-height: 1.75;
    
     /* color: red; */
 }
 
-.home p{
+.schedule p{
      color: var(--tx);
     
 }

@@ -2,7 +2,6 @@ import './MatchesCard.css'
 
 export default function MatchesCard({ match }) {
 
-
     return (
         <div className='card'>
 
@@ -18,7 +17,7 @@ export default function MatchesCard({ match }) {
             </div>
 
             <div className="box">
-                <div class="team">
+                <div className="team">
                     <img src={match.team2.img} height="16px" width="24px" alt="icon" />
                     <span>{match.team2.shortName}</span>
                 </div>
@@ -30,7 +29,12 @@ export default function MatchesCard({ match }) {
             <hr></hr>
 
             <div className="box">
-                <span class="live">Live</span>
+
+                <span className={
+                    match.matchEnded ? 'completed' : match.matchStarted ? 'live' : 'upcoming'
+                }>
+                    {match.matchEnded ? "COMPLETED" : match.matchStarted ? "LIVE" : "UPCOMING"}
+                </span>
                 <button>View Score</button>
             </div>
 

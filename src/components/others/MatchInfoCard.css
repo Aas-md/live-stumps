@@ -1,0 +1,44 @@
+.matchInfo {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+
+}
+
+.matchInfo .box {
+
+    gap: 1rem;
+}
+
+.matchInfo .box>h1 {
+    color: var(--tx-bold);
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 700;
+
+}
+
+
+.matchInfo .box>span {
+    color: var(--tx);
+    font-weight: 500;
+}
+
+.matchInfo .box span:first-child {
+
+
+    font-weight: 600;
+    margin-right: 0.7rem;
+    line-height: 1.5;
+}
+
+
+ #result {
+    color: var(--red);
+    font-weight: 500;
+}

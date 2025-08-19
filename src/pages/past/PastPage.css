@@ -1,4 +1,4 @@
-.home {
+.past {
 
     margin: 0 auto;
     padding: 2rem 4rem;
@@ -17,14 +17,14 @@
 
 }
 
-.home h2{
+.past h2{
  
     line-height: 1.75;
    
     /* color: red; */
 }
 
-.home p{
+.past p{
      color: var(--tx);
     
 }

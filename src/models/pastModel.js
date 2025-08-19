@@ -1,4 +1,4 @@
-const liveMathces = [
+const pastMatches = [
   {
     id: "d54c93cc-abd1-44c7-a534-ede33788e69e",
     name: "singapure vs some thing else, 1st T20I",
@@ -41,7 +41,7 @@ const liveMathces = [
       score: "162/7 (20.0)"
     },
     matchStarted: true,
-    matchEnded: false
+    matchEnded: true
   },
   {
     id: "m2",
@@ -63,8 +63,8 @@ const liveMathces = [
       img: "https://h.cricapi.com/img/icon512.png",
       score: "165/6 (20.0)"
     },
-    matchStarted: false,
-    matchEnded: false
+    matchStarted: true,
+    matchEnded: true
   },
   {
     id: "m3",
@@ -87,7 +87,7 @@ const liveMathces = [
       score: "156/8 (20.0)"
     },
     matchStarted: true,
-    matchEnded: false
+    matchEnded: true
   },
   {
     id: "m4",
@@ -132,8 +132,8 @@ const liveMathces = [
       img: "https://h.cricapi.com/img/icon512.png",
       score: "145/8 (20.0)"
     },
-    matchStarted: false,
-    matchEnded: false
+    matchStarted: true,
+    matchEnded: true
   },
   {
     id: "m6",
@@ -156,8 +156,8 @@ const liveMathces = [
       score: "151/4 (18.3)"
     },
     matchStarted: true,
-    matchEnded: false
+    matchEnded: true
   }
 ]
 
-export default liveMathces
+export default pastMatches

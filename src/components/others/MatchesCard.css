@@ -11,7 +11,7 @@
     background-color: #ffffff;
     transition: box-shadow, transform 300ms ease-in-out;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    cursor: pointer;
+    /* cursor: pointer; */
   
 }
 
@@ -23,11 +23,10 @@
 .card .team span{
 
     color:black;
+    font-weight: 500;
 
 }
-.card .team span{
-    font-weight: 600;
-}
+
 
 .card .box {
 
@@ -42,32 +41,29 @@
 
 .card hr {
     opacity: 0.2;
-    margin: 0 1rem 0 1rem;
+    margin: 0.2rem 1rem 0.5rem 1rem;
 }
 
 
 .card span,
-.card>button {
+.card button {
 
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
-   
+  
 
 }
+
 
 .card .score span {
     font-weight: 700;
 
 }
 
-.card .live {
-    color: var(--orange);
-    margin-top: 0.5;
-   
-}
 
-.card .live+button {
+
+.card button {
     color: var(--blue);
     font-family: "Poppins", sans-serif;
     font-weight: 500;
@@ -75,6 +71,28 @@
     border: none;
     background-color: white;
     font-size: 1rem;
+    padding: 0  1rem;
+     cursor: pointer;
+}
+
+.card button:hover{    
+    background-color: rgb(239, 246, 255);
+}
+.card .live {
+    color: var(--orange);
+
+    font-weight: 600;
+   
+}
+
+.card .completed{
+    font-weight: 600;
+    color: #ef4444;
+}
+
+.card .upcoming{
+    color: var(--tx);
+    font-weight: 600;
 }
 
 /* hover */
@@ -83,3 +101,4 @@
     box-shadow: 2px 2px 1px lightgray;
     transform: translateY(-4px);
 }
+

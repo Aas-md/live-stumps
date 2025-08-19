@@ -1,0 +1,53 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+
+}
+
+table td,
+table th {
+    text-align: start;
+}
+
+#battingSection {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+.scorecard-section {
+    margin-top: 1rem;
+}
+
+.scorecard-section table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0;
+}
+
+.scorecard-section th,
+.scorecard-section td {
+    padding: 8px 12px;
+}
+
+.scorecard-section th {
+    background: #f8f9fa;
+    text-align: left;
+}
+
+
+.scorecard-section td:last-child,
+.scorecard-section th:last-child {
+    text-align: right;
+
+}
+
+th {
+    color: var(--tx-light);
+    font-weight: 500;
+    font-size: 0.8rem;
+    line-height: 1;
+}
