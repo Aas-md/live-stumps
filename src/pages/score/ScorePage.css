@@ -1,11 +1,11 @@
-.score {
+.score-page {
 
     padding: 1rem 1.5rem;
 
 
 }
 
-.score .teams-tab {
+.score-page .teams-tab {
     display: flex;
     gap: 1rem;
 }

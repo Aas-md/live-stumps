@@ -19,7 +19,7 @@ export default function Homepage() {
     return (
         <div className='home'>
 
-            <div class="box1">
+            <div className="box1">
                 <h2>Live & Upcoming Matches</h2>
                 <p>Stay updated with real-time cricket scores</p>
             </div>

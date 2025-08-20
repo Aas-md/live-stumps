@@ -6,12 +6,15 @@ import TeamScore from "../../components/others/TeamScore.jsx"
 import BatsmanTable from "../../components/others/ScoreCard/BatsmanTable.jsx"
 import BowlerTable from "../../components/others/ScoreCard/BowlerTable.jsx"
 import Button from "../../components/Button.jsx"
+import { useParams } from "react-router-dom"
 
 export default function ScorePage() {
 
     const [score, setScore] = useState({ name: "biran" })
     const [activeTeam, setActiveTeam] = useState('team1')
     const [activeView, setActiveView] = useState("batting");
+
+    const {matchId} = useParams()
 
 
     let fetchScore = () => {
@@ -28,7 +31,7 @@ export default function ScorePage() {
 
 
     return (
-        <div className="score">
+        <div className="score-page">
             <MatchInfoCard matchInfo={matchInfo} />
             <TeamScore team1={score.team1} team2={score.team2} />
             <div className="teams-tab">

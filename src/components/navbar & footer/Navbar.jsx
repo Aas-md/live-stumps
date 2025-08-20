@@ -1,6 +1,8 @@
 import styles from './Navbar.module.css';
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+     const navigate = useNavigate();
     return (
         <div className={`${styles.container} ${styles.navbar}`}>
 
@@ -11,8 +13,8 @@ export default function Navbar() {
                 </div>
 
                 <div className={styles.links}>
-                    <a href="#">Schedule</a>
-                    <a href="#">Completed</a>
+                    <a href="#"  onClick={(e) => { e.preventDefault(); navigate("/schedule"); }}>Schedule</a>
+                    <a href="#" onClick={(e) => { e.preventDefault(); navigate("/completed"); }}>Completed</a>
                 </div>
 
             </div>

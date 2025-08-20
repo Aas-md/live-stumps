@@ -9,8 +9,12 @@ import ProfilePage from './pages/profilePage/ProfilePage.jsx'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
+
 <Routes>
   <Route path="/player/:id" element={<ProfilePage />} />
+    <Route path="/score/:id" element={<ScorePage />} />
+    <Route path="/schedule" element={<SchedulePage />}/>
+       <Route path="/completed" element={<PastPage />}/>
 </Routes>
 
 
@@ -22,7 +26,10 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/" element={<ScorePage />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path='/score/:id' element={<ScorePage/>}/>
+         <Route path="/schedule" element={<SchedulePage />}/>
+          <Route path="/completed" element={<PastPage />}/>
           <Route path="/player/:id" element={<ProfilePage />} />
         </Routes>
       </main>

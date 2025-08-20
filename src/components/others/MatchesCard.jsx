@@ -1,9 +1,15 @@
+import { useNavigate } from 'react-router-dom'
 import './MatchesCard.css'
 
 export default function MatchesCard({ match }) {
+    const navigate = useNavigate();
+
+    let onCardClick = ()=>{
+        navigate(`/score/${match?.id}`);
+    }
 
     return (
-        <div className='card'>
+        <div className='card' onClick={onCardClick}>
 
             <div className="box">
 

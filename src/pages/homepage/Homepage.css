@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 
-.cards {
+/* .home .cards {
     margin-top: 1.5rem;
     display: flex;
     flex-direction: row;
@@ -15,7 +15,8 @@
     justify-content: space-between;
 
 
-}
+
+} */
 
 .home h2{
  
@@ -27,4 +28,21 @@
 .home p{
      color: var(--tx);
     
+}
+
+/* mobile screens */
+@media (max-width: 700px) {
+  .home {
+    padding: 0.5rem;
+    
+  }
+}
+
+@media(max-width: 500px){
+     .home .cards {
+    flex-direction: column;
+  }
+  .cards .card{
+    width: 100%;
+  }
 }
