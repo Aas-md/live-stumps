@@ -1,17 +1,24 @@
-
 .score {
 
     padding: 1rem 1.5rem;
-   
+
 
 }
 
-.active {
+.score .teams-tab {
+    display: flex;
+    gap: 1rem;
+}
 
-    border: none;
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-light);
-    color: white;
-    font-size: 0.875rem;
-    border-radius: 0.375rem;
+.teams-tab,
+.view-tab {
+    margin-bottom: 1rem;
+
+}
+
+.teams-tab + hr {
+    margin-bottom: 1rem;
+    color: var(--tx-light);
+    opacity: 0.2;
+
 }

@@ -1,10 +1,11 @@
 import BatsmanRow from "./BatsmanRow";
 import './BatsmanTable.css'
 
-export default function BatsmanTable({batting}){
-    // console.log(team1)
+export default function BatsmanTable({batting, isHide}){
+    // console.log(isHide)
+    
     return (
-         <div className="bat-table">
+         <div className={`bat-table ${isHide}`} >
                 <table>
                     <thead>
                         <tr>

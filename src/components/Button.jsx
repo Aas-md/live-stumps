@@ -1,6 +1,8 @@
-export default function Button({name}){
+import './Button.css'
+
+export default function Button({name,isActive,onClick}){
 
     return (
-        <button>{name}</button>
+        <button className={isActive} onClick={onClick}>{name}</button>
     )
 }

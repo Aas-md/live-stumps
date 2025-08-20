@@ -10,6 +10,9 @@ import Button from "../../components/Button.jsx"
 export default function ScorePage() {
 
     const [score, setScore] = useState({ name: "biran" })
+    const [activeTeam, setActiveTeam] = useState('team1')
+    const [activeView, setActiveView] = useState("batting");
+
 
     let fetchScore = () => {
         let data = getLiveScore()
@@ -28,12 +31,34 @@ export default function ScorePage() {
         <div className="score">
             <MatchInfoCard matchInfo={matchInfo} />
             <TeamScore team1={score.team1} team2={score.team2} />
-            <Button name={score.team1.name}/>
-            <BatsmanTable batting={score.team1?.batting} />
-            <BowlerTable bowling={score.team2?.bowling} />
-            <BatsmanTable batting={score.team2?.batting} />
-            <BowlerTable bowling={score.team1?.bowling} />
+            <div className="teams-tab">
+                <Button name={score.team1?.name} isActive={activeTeam == 'team1' ? 'active' : 'disable'}
+                    onClick={() => setActiveTeam('team1')}
+                />
+                <Button name={score.team2?.name} isActive={activeTeam == 'team2' ? 'active' : 'disable'}
+                    onClick={() => setActiveTeam('team2')} />
+
+            </div>
+
+            <hr />
+            <div className="view-tab">
+
+                <Button name="Batting" isActive={activeView == 'batting' ? 'active' : 'disable'}
+                    onClick={() => setActiveView('batting')}
+                />
+                <Button name="Bowling" isActive={activeView == 'bowling' ? 'active' : 'disable'}
+                    onClick={() => setActiveView('bowling')} />
+
+            </div>
+
+            {activeView === "batting" ? (
+                <BatsmanTable batting={score[activeTeam]?.batting} />
+            ) : (
+                <BowlerTable bowling={score[activeTeam == 'team1' ? 'team2' : 'team1']?.bowling} />
+            )}
+
 
         </div>
     )
 }
+
