@@ -1,24 +1,19 @@
 import './SchedulePage.css'
-import { useState, useEffect } from 'react'
-import getScheduleMatches from '../../controllers/scheduleController.js'
+import useScheduleMatches from '../../customHooks/useScheduleMatches.js'
 import MatchesCard from '../../components/others/MatchesCard.jsx'
 
 export default function SchedulePage() {
 
-    const [matches, setMatches] = useState([])
+    const { matches, loading, error } = useScheduleMatches()
 
-    useEffect(() => {
-        const fetchData =  () => {
-            const data =  getScheduleMatches()
-            setMatches(data)
-        }
-        fetchData()
-    }, [])
+
+    if (loading) return <div className="home">Loading...</div>;
+    if (error) return <div className="Schedule error">{error}</div>;
 
     return (
         <div className='schedule'>
 
-            <div class="box1">
+            <div className="box1">
                 <h2>Schedule & Upcoming Matches</h2>
                 <p>Stay updated with real-time cricket scores</p>
             </div>
@@ -26,9 +21,11 @@ export default function SchedulePage() {
             <div className="cards">
 
                 {
-                    matches.map((match, idx) => (
-                        <MatchesCard key={idx} match={match} />
-                    ))
+                    (Array.isArray(matches) && matches.length > 0 ? ((
+                        matches.map((match, idx) => (
+                            <MatchesCard key={idx} match={match} />
+                        )))) : (<p>No matches available at the moment.</p>))
+
                 }
 
             </div>

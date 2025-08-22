@@ -1,7 +1,9 @@
 import liveMathces from "../models/homeModel.js";
+import sortMatches from "../utils/liveMatchSortingAlo.js";
 
 export default function getLiveMatches(){
 
-    return liveMathces
+    let matches =  sortMatches(liveMathces)
+    return matches
 
 }

@@ -1,3 +1,6 @@
+import {getRunRate,getRequiredRate,getTarget} from "../utils/runRateUtils.js";
+import { formatDate } from "../utils/dateUtil.js";
+
 const score = {
 
     id: "7929f530-9f6c-4e8d-9c15-08e772e1f1e0",
@@ -7,7 +10,8 @@ const score = {
     matchType: "odi",
     status: "West Indies won by 202 runs",
     venue: "Brian Lara Stadium, Tarouba, Trinidad",
-    date: "2025-08-12T13:30:00",
+    // date: "2025-08-12T13:30:00",
+    date : formatDate( "2025-08-12T13:30:00"),
     tossWinner: "Pakistan",
     tossChoice: "bowl",
     matchWinner: "West Indies",
@@ -22,7 +26,8 @@ const score = {
         name: "West Indies",
         shortname: "WI",
         img: "https://g.cricapi.com/iapi/100-637877077978319234.webp?w=48",
-        score: "176/7 (20.0)",
+        score: "294/6 (50.0)",
+        runRate : getRunRate("294/6 (50)"),
         inning: "West Indies Inning 1",
         batting: [
             {
@@ -222,7 +227,10 @@ const score = {
         name: "Pakistan",
         shortname: "PAK",
         img: "https://g.cricapi.com/iapi/66-637877075103236690.webp?w=48",
-        score: "150/7 (20.0)",
+        score: "92/10 (29.2)",
+         runRate : getRunRate("92/10 (29.2)"),
+         requiredRate : getRequiredRate("92/10 (29.2)",getTarget("294/6 (50)")),
+        target : getTarget("294/6 (50)"),
         inning: "Pakistan Inning 2",
 
         batting: [

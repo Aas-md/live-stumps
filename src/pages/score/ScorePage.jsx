@@ -13,14 +13,22 @@ export default function ScorePage() {
     const [score, setScore] = useState({ name: "biran" })
     const [activeTeam, setActiveTeam] = useState('team1')
     const [activeView, setActiveView] = useState("batting");
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
-    const {matchId} = useParams()
+    const { matchId } = useParams()
 
 
-    let fetchScore = () => {
-        let data = getLiveScore()
-
-        setScore(data)
+    let fetchScore = async () => {
+        try {
+            setLoading(true);
+            let data = await getLiveScore();
+            setScore(data);
+        } catch (err) {
+            setError("Failed to load score");
+        } finally {
+            setLoading(false);
+        }
     }
 
     useEffect(() => {
@@ -29,7 +37,8 @@ export default function ScorePage() {
 
     let matchInfo = { name: score.name, venue: score.venue, date: score.date, format: score.matchType, status: score.status }
 
-
+    if (loading) return <div >Loading...</div>
+    if (error) return <div>{error}</div>
     return (
         <div className="score-page">
             <MatchInfoCard matchInfo={matchInfo} />

@@ -12,7 +12,7 @@ export default function TeamScore({ team1, team2 }) {
                 </div>
                 <div className="team-stats">
                     <span className="scoreSpan">{team1?.score}</span>
-                    <span className="runrateSpan">Run Rate: 5.78</span>
+                    <span className="runrateSpan">Run Rate: {team1?.runRate}</span>
                 </div>
             </div>
             <div className="team team-two">
@@ -22,7 +22,7 @@ export default function TeamScore({ team1, team2 }) {
                 </div>
                 <div className="team-stats">
                     <span className="scoreSpan">{team2?.score}</span>
-                    <span className="runrateSpan">Run Rate: 5.55</span>
+                    <span className="runrateSpan">Run Rate: {team2?.runRate}</span>
                 </div>
             </div>
 
@@ -31,11 +31,11 @@ export default function TeamScore({ team1, team2 }) {
             <div className="match-summary">
                 <div className="target">
                     <span >Target : </span>
-                    <span>290 runs from 50 overs</span>
+                    <span>{team2?.target}</span>
                 </div>
                 <div className="target">
                     <span >Required Run Rate : </span>
-                    <span>8.34 (last 14.4 overs)</span>
+                    <span>{team2?.requiredRate}</span>
                 </div>
             </div>
 

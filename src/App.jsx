@@ -7,14 +7,15 @@ import PastPage from './pages/past/PastPage'
 import ScorePage from './pages/score/ScorePage'
 import ProfilePage from './pages/profilePage/ProfilePage.jsx'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ErrorBoundary from './utils/ErrorBoundary.jsx'
 
 
 
 <Routes>
   <Route path="/player/:id" element={<ProfilePage />} />
-    <Route path="/score/:id" element={<ScorePage />} />
-    <Route path="/schedule" element={<SchedulePage />}/>
-       <Route path="/completed" element={<PastPage />}/>
+  <Route path="/score/:id" element={<ScorePage />} />
+  <Route path="/schedule" element={<SchedulePage />} />
+  <Route path="/completed" element={<PastPage />} />
 </Routes>
 
 
@@ -25,13 +26,15 @@ function App() {
     <div className="app">
       <Navbar />
       <main>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path='/score/:id' element={<ScorePage/>}/>
-         <Route path="/schedule" element={<SchedulePage />}/>
-          <Route path="/completed" element={<PastPage />}/>
-          <Route path="/player/:id" element={<ProfilePage />} />
-        </Routes>
+        <ErrorBoundary>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path='/score/:id' element={<ScorePage />} />
+            <Route path="/schedule" element={<SchedulePage />} />
+            <Route path="/completed" element={<PastPage />} />
+            <Route path="/player/:id" element={<ProfilePage />} />
+          </Routes>
+        </ErrorBoundary>
       </main>
       <Footer />
     </div>
