@@ -18,7 +18,7 @@ export default function BowlerRow({player}) {
                     </div>
                     <div className="player-name">
                         <span>{player?.bowler?.name}</span>
-                        <span>Left Arm Fast</span>
+
                     </div>
                 </div>
             </td>

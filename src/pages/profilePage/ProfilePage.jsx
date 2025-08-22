@@ -1,45 +1,56 @@
 import { useParams } from "react-router-dom";
 import logo from "../../assets/react.svg";
 import './ProfilePage.css'
+import getPlayerInfo from "../../controllers/playerCotroller.js";
+import { useEffect, useState } from "react";
 
 export default function ProfilePage() {
+const { id } = useParams();
+    let [player,setPlayer] = useState({key : 'default obj'})
 
-    const { id } = useParams();
+    let fetchPlayerIfo = async ()=>{
+       let data = await getPlayerInfo()
+        setPlayer(data)
+    }
+
+    useEffect(()=>{
+        fetchPlayerIfo()
+    },[])
 
     return (
          <div className="Profile">
 
      
         <div className="profile-container">
-            <img src={logo} alt="img" height="40px" width="40px"/>
-            <h6 id="name">Shaheen Afridi</h6>
-            <span id="country">Pakistan</span>
+            <img src={player?.playerImg} alt="img" height="40px" width="40px"/>
+            <h6 id="name">{player?.name}</h6>
+            <span id="country">{player.country}</span>
         </div>
 
         <div className="personal-info-container">
-            <div class="born info">
+            <div className="born info">
                 <span>Born</span>
-                <span>Aprill 06,2000 (25 years)</span>
+                <span>{player.dateOfBirth}</span>
             </div>
 
             <div className="country info">
                 <span>Country</span>
-                <span>Pakistan</span>
+                <span>{player.country}</span>
             </div>
 
             <div className="role info">
                 <span>Role</span>
-                <span>Bowler</span>
+                <span>{player.role}</span>
             </div>
 
             <div className="bat-style info">
                 <span>Batting Style</span>
-                <span>Left Handed Bat</span>
+                <span>{player.battingStyle}</span>
             </div>
 
             <div className="bowl-style info">
                 <span>Bowling Style</span>
-                <span>Left arm fast medium</span>
+                <span>{player.bowlingStyle}</span>
             </div>
 
         </div>

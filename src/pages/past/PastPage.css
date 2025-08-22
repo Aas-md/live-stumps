@@ -28,3 +28,20 @@
      color: var(--tx);
     
 }
+
+/* tablet screens */
+@media (max-width: 700px) {
+  .past {
+    padding: 0.5rem;
+    
+  }
+}
+
+@media(max-width: 480px){
+     .past .cards {
+    flex-direction: column;
+  }
+  .cards .card{
+    width: 100%;
+  }
+}

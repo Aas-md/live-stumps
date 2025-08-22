@@ -1,7 +1,8 @@
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* so it stays above other elements */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* so it stays above other elements */
 }
 
 
@@ -25,16 +26,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 40%;
+    gap: 4rem;
+
+
 }
 
 .navbar .first:last-child {
     justify-content: end;
     gap: 1rem;
+
 }
 
 
- .navbar .logo h1 {
+.navbar .logo h1 {
 
     color: var(--blue);
     font-weight: 700;
@@ -77,4 +81,37 @@
 
 .navbar input:focus {
     border: 2px solid var(--blue)
+}
+
+
+
+
+
+@media(max-width: 650px) {
+
+    .navbar {
+        padding: 1rem 0.5rem;
+
+    }
+
+    .navbar .first:last-child input {
+        display: none;
+    }
+
+    .navbar .first {
+        gap: 1rem;
+    }
+
+}
+
+@media(max-width:365px) {
+    .navbar .first:last-child {
+        display: none;
+
+    }
+
+    .navbar .first{
+         flex: 1;   /* parent ki available width le lega */
+    }
+
 }

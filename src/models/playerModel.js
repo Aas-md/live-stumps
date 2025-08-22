@@ -9,3 +9,5 @@ const playerInfo = {
     country: "Guernsey",
     playerImg: "https://h.cricapi.com/img/icon512.png"
 }
+
+export default playerInfo

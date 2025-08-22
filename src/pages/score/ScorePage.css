@@ -22,3 +22,15 @@
     opacity: 0.2;
 
 }
+
+@media(max-width:770px){
+    .score-page{
+          padding: 1rem 1rem;
+    }
+}
+
+@media(max-width:480px){
+    .score-page{
+          padding: 1rem 0.5rem;
+    }
+}

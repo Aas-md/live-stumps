@@ -46,6 +46,33 @@ table tr:last-child {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     position: relative;
 }
-.team-hide{
+
+.team-hide {
     display: none;
+}
+
+@media(max-width:770px) {}
+
+@media(max-width:480px) {
+
+    .bat-table td,
+    .bat-table th {
+        text-align: start;
+        padding: 8px 6px;
+    }
+
+    .bat-table td:last-child,
+    .bat-table th:last-child {
+
+        display: none;
+
+    }
+
+
+    .bat-table td:nth-last-child(2),
+    .bat-table th:nth-last-child(2) {
+        text-align: right;
+    }
+
+
 }
