@@ -1,5 +1,5 @@
 import {getRunRate,getRequiredRate,getTarget} from "../utils/runRateUtils.js";
-import { formatDate } from "../utils/dateUtil.js";
+import { formatDateAndTime } from "../utils/dateUtil.js";
 
 const score = {
 
@@ -11,7 +11,7 @@ const score = {
     status: "West Indies won by 202 runs",
     venue: "Brian Lara Stadium, Tarouba, Trinidad",
     date: "2025-08-12T13:30:00",
-    date : formatDate( "2025-08-12T13:30:00"),
+    date : formatDateAndTime( "2025-08-12T13:30:00"),
     tossWinner: "Pakistan",
     tossChoice: "bowl",
     matchWinner: "West Indies",

@@ -40,8 +40,8 @@ const liveMathces = [
       img: "https://shorturl.at/7fbYU",
       score: "162/7 (20.0)"
     },
-    matchStarted: true,
-    matchEnded: false
+    // matchStarted: true,
+    // matchEnded: false
   },
   {
     id: "m2",

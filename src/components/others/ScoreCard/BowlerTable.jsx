@@ -20,9 +20,16 @@ export default function BowlerTable({bowling}){
                     </thead>
                     <tbody id="bowling-data-1">
                         {
-                            bowling?.map((player,idx)=>(
+                            Array.isArray(bowling) && bowling.length > 0 ? (bowling?.map((player,idx)=>(
                                 <BowlerRow key={idx} player={player}/> 
-                            ))
+                            ))): (
+                            <tr style={{ border: "1px solid #ccc" }}>
+                                <td colSpan="7" style={{display: "table-cell", textAlign: "center", padding: "12px", fontStyle: "italic", color: "#555" }}>
+                                    Not Bowled Yet
+                                </td>
+                            </tr>
+                        )
+
                         }   
                     </tbody>
                 </table>

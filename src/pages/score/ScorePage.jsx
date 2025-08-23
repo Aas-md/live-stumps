@@ -10,13 +10,14 @@ import useScore from "../../customHooks/useScore.js"
 
 export default function ScorePage() {
 
-    let {score,activeTeam,activeView,loading,error,setActiveTeam,setActiveView} = useScore()
+    let { score, activeTeam, activeView, loading, error, setActiveTeam, setActiveView } = useScore()
 
     if (loading) return <div className="score-page">Loading...</div>
     if (error) return <div className="score-page">{error}</div>
- 
-        if(!score)return <p  className="score-page">Some thing went wrong please try again after some time</p>//null case or undefine case
-      let matchInfo = { name: score.name, venue: score.venue, date: score.date, format: score.matchType, status: score.status }
+
+    if (!score || Object.keys(score).length === 0)
+        return <p className="score-page">Some thing went wrong please try again after some time</p>//null case or undefine case
+    let matchInfo = { name: score.name, venue: score.venue, date: score.date, format: score.matchType, status: score.status }
 
     return (
         <div className="score-page">

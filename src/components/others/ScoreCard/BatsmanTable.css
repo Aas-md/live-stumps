@@ -27,6 +27,7 @@ table {
 
 .bat-table th {
     background: #f8f9fa;
+    
     text-align: left;
     color: var(--tx-light);
     font-weight: 500;
@@ -51,7 +52,21 @@ table tr:last-child {
     display: none;
 }
 
-@media(max-width:770px) {}
+@media(max-width:720px) {
+
+    .bat-table td:last-child,
+    .bat-table th:last-child {
+
+        display: none;
+
+    }
+
+
+    .bat-table td:nth-last-child(2),
+    .bat-table th:nth-last-child(2) {
+        text-align: right;
+    }
+}
 
 @media(max-width:480px) {
 

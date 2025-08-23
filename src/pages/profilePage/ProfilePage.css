@@ -7,59 +7,65 @@
     flex-direction: column;
 }
 
-.profile-container{
-    
+.profile-container {
+
     margin: 0 auto;
     text-align: center;
-   
+
 }
 
-.Profile img{
+.no-img {
+
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: #666;
+    display: inline-block;
+
+}
+
+.Profile img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     background-color: grey;
 }
 
-.Profile h6{
+.Profile h6 {
     font-size: 1.5rem;
 }
 
-.personal-info-container{
+.personal-info-container {
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
     width: 100%;
     background-color: white;
-   
-    
+
+
 }
 
-.Profile .info{
+.Profile .info {
     padding: 1rem 1rem;
     border: 1px solid rgba(211, 211, 211, 0.3);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-   
+
 }
 
-.Profile .info span:first-child{
+.Profile .info span:first-child {
     color: var(--tx-light);
 }
-.Profile .info span:last-child{
+
+.Profile .info span:last-child {
     color: var(--tx-bold);
 }
 
-@media(max-width:700px){
+@media(max-width:700px) {
 
-    .Profile{
-           padding: 2rem 0rem;
+    .Profile {
+        padding: 2rem 0rem;
     }
 }
-
-
-
-
-
-

@@ -8,7 +8,7 @@ export default function TeamScore({ team1, team2 }) {
             <div className="team team-one">
                 <div className="team-header">
                     <img src={team1?.img} alt="flag" />
-                    <h2>{team1?.name}</h2>
+                    <h2>{team1?.name || "Name not available"}</h2>
                 </div>
                 <div className="team-stats">
                     <span className="scoreSpan">{team1?.score}</span>
@@ -18,7 +18,7 @@ export default function TeamScore({ team1, team2 }) {
             <div className="team team-two">
                 <div className="team-header">
                     <img src={team2?.img} alt="flag" />
-                    <h2>{team2?.name}</h2>
+                    <h2>{team2?.name || "Name not available"}</h2>
                 </div>
                 <div className="team-stats">
                     <span className="scoreSpan">{team2?.score}</span>
