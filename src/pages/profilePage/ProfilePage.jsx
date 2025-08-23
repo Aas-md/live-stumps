@@ -1,26 +1,21 @@
-import { useParams } from "react-router-dom";
-import logo from "../../assets/react.svg";
+
+import useProfile from '../../customHooks/useProfile'
 import './ProfilePage.css'
-import getPlayerInfo from "../../controllers/playerCotroller.js";
-import { useEffect, useState } from "react";
+
 
 export default function ProfilePage() {
-const { id } = useParams();
-    let [player,setPlayer] = useState({key : 'default obj'})
 
-    let fetchPlayerIfo = async ()=>{
-       let data = await getPlayerInfo()
-        setPlayer(data)
-    }
+    let {player,loading,error} = useProfile()
 
-    useEffect(()=>{
-        fetchPlayerIfo()
-    },[])
+    if (loading) return <div className="Profile">Loading...</div>;
+    if (error) return <div className="Profile">{error}</div>;
 
     return (
          <div className="Profile">
 
-     
+      {!player ? (
+        <p>Some thing went wrong please try again after some time</p>
+      ) : (<>
         <div className="profile-container">
             <img src={player?.playerImg} alt="img" height="40px" width="40px"/>
             <h6 id="name">{player?.name}</h6>
@@ -53,7 +48,7 @@ const { id } = useParams();
                 <span>{player.bowlingStyle}</span>
             </div>
 
-        </div>
+        </div> </>)}
 
     </div>
     )

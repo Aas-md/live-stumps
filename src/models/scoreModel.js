@@ -4,13 +4,13 @@ import { formatDate } from "../utils/dateUtil.js";
 const score = {
 
     id: "7929f530-9f6c-4e8d-9c15-08e772e1f1e0",
-    status: "success",
+    api_status: "success",
     hitsToday: 33,
     name: "West Indies vs Pakistan, 3rd ODI",
     matchType: "odi",
     status: "West Indies won by 202 runs",
     venue: "Brian Lara Stadium, Tarouba, Trinidad",
-    // date: "2025-08-12T13:30:00",
+    date: "2025-08-12T13:30:00",
     date : formatDate( "2025-08-12T13:30:00"),
     tossWinner: "Pakistan",
     tossChoice: "bowl",

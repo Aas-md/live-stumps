@@ -1,44 +1,23 @@
-import { useEffect, useState } from "react"
-import getLiveScore from '../../controllers/scoreController.js'
+
 import MatchInfoCard from "../../components/others/MatchInfoCard.jsx"
 import './ScorePage.css'
 import TeamScore from "../../components/others/TeamScore.jsx"
 import BatsmanTable from "../../components/others/ScoreCard/BatsmanTable.jsx"
 import BowlerTable from "../../components/others/ScoreCard/BowlerTable.jsx"
 import Button from "../../components/Button.jsx"
-import { useParams } from "react-router-dom"
+import useScore from "../../customHooks/useScore.js"
+
 
 export default function ScorePage() {
 
-    const [score, setScore] = useState({ name: "biran" })
-    const [activeTeam, setActiveTeam] = useState('team1')
-    const [activeView, setActiveView] = useState("batting");
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+    let {score,activeTeam,activeView,loading,error,setActiveTeam,setActiveView} = useScore()
 
-    const { matchId } = useParams()
+    if (loading) return <div className="score-page">Loading...</div>
+    if (error) return <div className="score-page">{error}</div>
+ 
+        if(!score)return <p  className="score-page">Some thing went wrong please try again after some time</p>//null case or undefine case
+      let matchInfo = { name: score.name, venue: score.venue, date: score.date, format: score.matchType, status: score.status }
 
-
-    let fetchScore = async () => {
-        try {
-            setLoading(true);
-            let data = await getLiveScore();
-            setScore(data);
-        } catch (err) {
-            setError("Failed to load score");
-        } finally {
-            setLoading(false);
-        }
-    }
-
-    useEffect(() => {
-        fetchScore()
-    }, [])
-
-    let matchInfo = { name: score.name, venue: score.venue, date: score.date, format: score.matchType, status: score.status }
-
-    if (loading) return <div >Loading...</div>
-    if (error) return <div>{error}</div>
     return (
         <div className="score-page">
             <MatchInfoCard matchInfo={matchInfo} />
