@@ -2,7 +2,7 @@ import BatsmanRow from "./BatsmanRow";
 import './BatsmanTable.css'
 
 export default function BatsmanTable({ batting, isHide }) {
-    console.log("batsman table called")
+   
 
     return (
         <div className={`bat-table ${isHide}`} >
