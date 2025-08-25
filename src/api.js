@@ -9,7 +9,22 @@ import mapCompletedmatches from "./mappers/completedMapper.js";
 import { filterRecentMatches } from "./utils/liveMatchesUtils.js";
 
 // const API_KEY = '92155edc-b3f5-4aa7-a479-b1926bb976ed'//7071
-const API_KEY = 'ef25db60-2ba9-4013-9baa-379a453f48ec'//98972
+// const API_KEY = 'ef25db60-2ba9-4013-9baa-379a453f48ec'//98972
+
+const apiKeys = [
+    "ef25db60-2ba9-4013-9baa-379a453f48ec",
+    "92155edc-b3f5-4aa7-a479-b1926bb976ed",
+];
+
+function getApiKey() {
+    const randomIndex = Math.floor(Math.random() * apiKeys.length);
+    return apiKeys[randomIndex];
+}
+
+const API_KEY = getApiKey()
+console.log(API_KEY)
+
+
 
 export async function fetchLiveMatches() {
 
@@ -41,11 +56,11 @@ export async function fetchScore(match_id) {
 
 
         const data = await response.json()
-       
+
 
 
         let score = mapScore(data.data)
-      
+
         return score;
 
     } catch (err) {
@@ -65,10 +80,10 @@ export async function fetchPlayerInfo(player_id) {
 
 
         let data = await response.json()
-      
+
 
         let playerInfo = mapPlayerProfileObj(data.data)
-     
+
 
         return playerInfo;
 
@@ -86,11 +101,11 @@ export async function fetchUpcoming() {
         const response = await fetch(url);
 
         const jsonResponse = await response.json();
-     
+
 
         let matches = filterUpcommingMatches(jsonResponse.data);
         matches = mapupcomingMathces(matches)
-    
+
         return matches
 
     } catch (err) {
@@ -107,11 +122,11 @@ export async function fetchCompleted() {
         const response = await fetch(url);
 
         const jsonResponse = await response.json();
-       
+
         let matches = filterCompletedMatches(jsonResponse.data);
-      
+
         matches = mapCompletedmatches(matches)
-        
+
         return matches
 
     } catch (err) {
