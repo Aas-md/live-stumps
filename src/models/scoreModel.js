@@ -1,5 +1,6 @@
 import {getRunRate,getRequiredRate,getTarget} from "../utils/runRateUtils.js";
 import { formatDateAndTime } from "../utils/dateUtil.js";
+import { getRandomImage } from "../utils/scoreUtils.js";
 
 const score = {
 
@@ -44,6 +45,7 @@ const score = {
                 "4s": 1,
                 "6s": 0,
                 sr: 62.5,
+                img : getRandomImage().img
 
             },
             {
@@ -160,7 +162,8 @@ const score = {
                 w: 6,
                 nb: 0,
                 wd: 1,
-                eco: 2.5
+                eco: 2.5,
+                img : getRandomImage().img
             },
             {
                 bowler: {

@@ -10,13 +10,13 @@ export default function useScore() {
     const [error, setError] = useState(null)
     const called = useRef(false);
 
-    const { matchId } = useParams()
+    const { id } = useParams()
 
 
     let fetchScore = async () => {
         try {
             setLoading(true);
-            let data = await getLiveScore();
+            let data = await getLiveScore(id);
             setScore(data);
         } catch (err) {
             console.error("Failed to score :", err)

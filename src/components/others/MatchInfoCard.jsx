@@ -1,7 +1,7 @@
 import './MatchInfoCard.css'
 
 export default function MatchInfocard({matchInfo : info}) {
-    // console.log("match info is ",info)
+
 
     return (
         <div className="matchInfo">

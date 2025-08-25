@@ -43,5 +43,14 @@ table td:last-child {
     height: 24px;
     width: 24px;
     border-radius: 50%;
+}
+.player .no-img-scorepage {
+
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: #666;
+    display: inline-block;
 
 }

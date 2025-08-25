@@ -1,7 +1,9 @@
 import scheduleMatches from "../models/scheduleModel.js";
-
-export default function getScheduleMatches(){
-
-    return scheduleMatches
-
+import { fetchUpcoming } from "../api.js";
+import { sortmatchByNearestDate } from "../utils/upcomingMatchesUtil.js";
+export default async function getScheduleMatches(){
+    let matches =  await fetchUpcoming()
+    let sortedMatch = sortmatchByNearestDate(matches)
+      return sortedMatch
+    
 }

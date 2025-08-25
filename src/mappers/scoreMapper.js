@@ -1,4 +1,7 @@
 import { getOrderedTeams } from "../utils/teamNameUtils.js";
+import { formatDateAndTime } from "../utils/dateUtil.js";
+import { getRunRate,getRequiredRate,getTarget } from "../utils/runRateUtils.js";
+import { getRandomImage } from "../utils/scoreUtils.js";
 export function mapScore(data) {
 
     if (!data) return {}
@@ -15,22 +18,26 @@ export function mapScore(data) {
         venue: data.venue,
         matchType: data.matchType,
 
-        date: data.dateTimeGMT,
+        date: formatDateAndTime(data.dateTimeGMT),
         tossWinner: data.tossWinner,
         tossChoice: data.tossChoice,
         team1: {
             name: teams[0].name,
             img: teams[0].img,
             score: score1,
+            runRate : getRunRate(score1),
             batting: mapbattingScorecard(data.scorecard[0]?.batting),
-            bowling: mapBowlingScorecard(data.scorecard[0]?.bowling),
+            bowling: mapBowlingScorecard(data.scorecard[1]?.bowling),
         },
         team2: {
             name: teams[1].name,
             img: teams[1].img,
             score: score2,
+             runRate : getRunRate(score2),
+             target : getTarget(score1),
+             requiredRate : getRequiredRate(score2,getTarget(score1)),
             batting: mapbattingScorecard(data.scorecard[1]?.batting),
-            bowling: mapBowlingScorecard(data.scorecard[1]?.bowling),
+            bowling: mapBowlingScorecard(data.scorecard[0]?.bowling),
         }
     }
 
@@ -41,6 +48,7 @@ export function mapScore(data) {
 function mapbattingScorecard(battings = []) {
     if (!battings || battings.length == 0) return []
     let battingArr = []
+    console.log('in mapper->',getRandomImage().img)
 
     for (let batting of battings) {
 
@@ -56,7 +64,7 @@ function mapbattingScorecard(battings = []) {
             b: batting.b,
             sr: batting.sr,
             dismissalText: batting['dismissal-text'],
-            // img: getRandomImage().img
+            img: getRandomImage().img
         }
         battingArr.push(currBatsman)
 
@@ -82,7 +90,7 @@ function mapBowlingScorecard(bowlings = []) {
             eco: bowling.eco,
             wd: bowling.wd,
             // action: getRandomImage().action,
-            // img: getRandomImage().img
+            img: getRandomImage().img
         }
 
         bowlingArr.push(currBowler)

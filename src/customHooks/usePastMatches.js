@@ -1,17 +1,20 @@
-import { useState,useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import getPastMatches from '../controllers/pastController.js'
 
 export default function usePastMatches() {
     const [matches, setMatches] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
+    const called = useRef(false);
 
     useEffect(() => {
+        if (called.current) return; // prevent double call
+        called.current = true;
 
-        const fetchData = () => {
+        const fetchData = async () => {
             try {
                 setLoading(true)
-                const data = getPastMatches()
+                const data = await getPastMatches()
                 setMatches(data)
             }
             catch (err) {

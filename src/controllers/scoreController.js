@@ -1,8 +1,8 @@
-// import score from '../models/scoreModel.js'
+import score from '../models/scoreModel.js'
 import { fetchScore } from '../api.js';
 
-export default async function getLiveScore(){
-    let score = await fetchScore()
+export default async function getLiveScore(matchId){
+    // let score = await fetchScore(matchId)
     return score;
    
 }

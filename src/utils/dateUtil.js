@@ -1,23 +1,25 @@
 export function formatDateAndTime(dateStr) {
-  // Force UTC parsing
-  const d = new Date(dateStr + "Z"); // "Z" = UTC indicator
-  
-  const time = d.toLocaleTimeString("en-US", { 
-    hour: "2-digit", 
-    minute: "2-digit", 
-    hour12: true, 
-    timeZone: "Asia/Kolkata" 
+  // Force GMT parsing
+  const d = new Date(dateStr + "Z"); // "Z" ensures UTC/GMT
+
+  const time = d.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: "Asia/Kolkata" // Convert UTC to IST
   });
 
-  const date = d.toLocaleDateString("en-GB", { 
-    day: "2-digit", 
-    month: "2-digit", 
-    year: "numeric", 
-    timeZone: "Asia/Kolkata" 
+  const date = d.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    timeZone: "Asia/Kolkata"
   });
 
   return `${time} & ${date} IST`;
 }
+
+
 
 export  function formatDate(dateStr) {
   const date = new Date(dateStr);

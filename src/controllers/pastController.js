@@ -1,7 +1,7 @@
+import { fetchCompleted } from "../api.js";
 import pastMatches from "../models/pastModel.js";
 
-export default function getPastMatches(){
-
-    return pastMatches
+export default async function getPastMatches(){
+    return await fetchCompleted()
 
 }
