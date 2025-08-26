@@ -1,6 +1,7 @@
 import { formatDate } from "../utils/dateUtil.js"
 export function mapPlayerProfileObj(data){
 
+   
     if(!data)return {}
 
     const playerInfo = {

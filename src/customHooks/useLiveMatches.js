@@ -15,8 +15,8 @@ export default function useLiveMatches() {
                 const data = await getLiveMatches()
                 setMatches(data)
             } catch (err) {
-                console.error("Failed to fetch matches:", err)
-                setError("Unable to load matches right now.")
+                console.log("Failed to fetch Live matches:", err)
+                setError("Unable to load matches please try again.")
             } finally {
                 setLoading(false)
             }

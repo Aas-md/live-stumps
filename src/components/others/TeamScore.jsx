@@ -17,7 +17,7 @@ export default function TeamScore({ team1, team2 }) {
             </div>
             <div className="team team-two">
                 <div className="team-header">
-                    <img src={team2?.img} alt="flag" />
+                    <img src={team2?.img} />
                     <h2>{team2?.name || "Name not available"}</h2>
                 </div>
                 <div className="team-stats">

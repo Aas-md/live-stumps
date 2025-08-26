@@ -2,6 +2,8 @@ import { getRandomTeamImage } from "../utils/scoreUtils";
 
 export default function mapupcomingMathces(matches) {
 
+    if(!matches || !matches.length)return []
+
     let matchesObj = [];
 
     for (let match of matches) {
@@ -10,10 +12,7 @@ export default function mapupcomingMathces(matches) {
         let team2Name = getTeamShortName(match.t2)
         let team1Img =  getRandomTeamImage(team1Name) == "" ? match.t1img : getRandomTeamImage(team1Name)
         let team2Img =  getRandomTeamImage(team2Name) == "" ? match.t2img : getRandomTeamImage(team2Name)
-      
-
-
-
+    
         let curr = {
 
             id: match.id,
@@ -35,8 +34,6 @@ export default function mapupcomingMathces(matches) {
                 img: team2Img,
                 score: match.t2s && match.t2s.trim() !== "" ? match.t1s : "0/0 (0.0)",
             },
-
-
 
         }
 

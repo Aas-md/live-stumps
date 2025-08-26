@@ -8,12 +8,12 @@ import { filterCompletedMatches } from "./utils/completedMatchesUtils.js";
 import mapCompletedmatches from "./mappers/completedMapper.js";
 import { filterRecentMatches } from "./utils/liveMatchesUtils.js";
 
-// const API_KEY = '92155edc-b3f5-4aa7-a479-b1926bb976ed'//7071
-// const API_KEY = 'ef25db60-2ba9-4013-9baa-379a453f48ec'//98972
 
 const apiKeys = [
-    "ef25db60-2ba9-4013-9baa-379a453f48ec",
-    "92155edc-b3f5-4aa7-a479-b1926bb976ed",
+    "ef25db60-2ba9-4013-9baa-379a453f48ec",//98972
+    "92155edc-b3f5-4aa7-a479-b1926bb976ed",//7071
+    '13b20fa9-6202-4477-8ce0-baa65662d4a8',//hamza
+    '13b20fa9-6202-4477-8ce0-baa65662d4a8'//rahat
 ];
 
 function getApiKey() {
@@ -22,116 +22,138 @@ function getApiKey() {
 }
 
 const API_KEY = getApiKey()
-console.log(API_KEY)
+
 
 
 
 export async function fetchLiveMatches() {
 
-    try {
+    const API_URL = "https://api.cricapi.com/v1/currentMatches"
+    let url = `${API_URL}?apikey=${API_KEY}&offset=0`
 
-        const API_URL = "https://api.cricapi.com/v1/currentMatches"
-        let url = `${API_URL}?apikey=${API_KEY}&offset=0`
+    const response = await fetch(url)
 
-        const response = await fetch(url);
+    if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`)
 
-        const data = await response.json();
-        let matches = mapCurrentMathces(data.data);
-        return matches
+    const data = await response.json()
 
-    } catch (err) {
-        console.log(err, 'Excetion in FetchLiveMatches')
+    if (data.status == 'failure')
+        throw new Error(data.reason)
+
+    if (!Array.isArray(data.data)) {
+        throw new Error("Invalid data format from API");
     }
 
+
+    let matches = mapCurrentMathces(data.data)
+    return matches
 }
 
 
 export async function fetchScore(match_id) {
 
-    try {
-        const API_URL = "https://api.cricapi.com/v1/match_scorecard"
+    const API_URL = "https://api.cricapi.com/v1/match_scorecard"
+    let url = `${API_URL}?apikey=${API_KEY}&offset=0&id=${match_id}`
 
-        let url = `${API_URL}?apikey=${API_KEY}&offset=0&id=${match_id}`
-        const response = await fetch(url)
+    const response = await fetch(url)
+
+    if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`)
+
+    const data = await response.json()
+
+    if (data.status == 'failure')
+        throw new Error(data.reason)
 
 
-        const data = await response.json()
+    if (!data || !data.data)
+        throw new Error("Invalid data format from API")
 
 
+    let score = mapScore(data.data)
 
-        let score = mapScore(data.data)
-
-        return score;
-
-    } catch (err) {
-        console.log('error -> ', err)
-    }
-
+    return score;
 }
 
 
 export async function fetchPlayerInfo(player_id) {
 
-    try {
-        let BASE_URL = 'https://api.cricapi.com/v1/players_info'
-        let URL = `${BASE_URL}?apikey=${API_KEY}&offset=0&id=${player_id}`
 
-        let response = await fetch(URL)
+    let BASE_URL = 'https://api.cricapi.com/v1/players_info'
+    let URL = `${BASE_URL}?apikey=${API_KEY}&offset=0&id=${player_id}`
 
+    let response = await fetch(URL)
 
-        let data = await response.json()
+    if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`)
 
+    let data = await response.json()
 
-        let playerInfo = mapPlayerProfileObj(data.data)
+    if (data.status == 'failure')
+        throw new Error(data.reason)
 
+    if (!data || !data.data)
+        throw new Error("Invalid data format from API")
 
-        return playerInfo;
+    let playerInfo = mapPlayerProfileObj(data.data)
 
-    } catch (err) {
-        console.log("error->", err)
-    }
+    return playerInfo;
+
 }
 
 export async function fetchUpcoming() {
-    try {
-
-        const API_URL = "https://api.cricapi.com/v1/cricScore"
-        let url = `${API_URL}?apikey=${API_KEY}`
-
-        const response = await fetch(url);
-
-        const jsonResponse = await response.json();
 
 
-        let matches = filterUpcommingMatches(jsonResponse.data);
-        matches = mapupcomingMathces(matches)
+    const API_URL = "https://api.cricapi.com/v1/cricScore"
+    let url = `${API_URL}?apikey=${API_KEY}`
 
-        return matches
+    const response = await fetch(url)
+    if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`)
 
-    } catch (err) {
-        console.log(err, 'Excetion in FetchLiveMatches')
-    }
+    const jsonResponse = await response.json()
+
+    if (jsonResponse.status == 'failure')
+        throw new Error(jsonResponse.reason)
+
+    if (!jsonResponse || !jsonResponse.data)
+        throw new Error("Invalid data format from API")
+
+    let matches = filterUpcommingMatches(jsonResponse.data);
+    matches = mapupcomingMathces(matches)
+
+    return matches
+
+
 }
 
 export async function fetchCompleted() {
-    try {
 
-        const API_URL = "https://api.cricapi.com/v1/cricScore"
-        let url = `${API_URL}?apikey=${API_KEY}`
 
-        const response = await fetch(url);
+    const API_URL = "https://api.cricapi.com/v1/cricScore"
+    let url = `${API_URL}?apikey=${API_KEY}`
 
-        const jsonResponse = await response.json();
+    const response = await fetch(url);
 
-        let matches = filterCompletedMatches(jsonResponse.data);
+    if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`)
 
-        matches = mapCompletedmatches(matches)
+    const jsonResponse = await response.json()
 
-        return matches
+    if (jsonResponse.status == 'failure')
+        throw new Error(jsonResponse.reason)
 
-    } catch (err) {
-        console.log(err, 'Excetion in FetchLiveMatches')
-    }
+    if (!jsonResponse || !jsonResponse.data)
+        throw new Error("Invalid data format from API")
+
+    let matches = filterCompletedMatches(jsonResponse.data);
+
+    matches = mapCompletedmatches(matches)
+
+    return matches
+
+
 }
 
 

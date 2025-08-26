@@ -6,7 +6,7 @@ export default async function getLiveMatches(){
 
  
     let matches =await fetchLiveMatches()
-    // matches = sortMatches(matches)
+    matches = sortMatches(matches)
     return matches
 
 }

@@ -75,9 +75,25 @@ export function getRandomTeamImage(teamName) {
     
 
     // Special case: SA / RSA for South Africa
-    if (!mainName && normalized.startsWith("sa")) {
+    if (!mainName && normalized.startsWith("sa") || normalized.startsWith('so')) {
         mainName = "South Africa";
     }
+
+    //for wi
+     if (!mainName && normalized.startsWith("we") ) {
+        mainName = "Sri Lanka";
+    }
+
+     //for sl
+     if (!mainName && normalized.startsWith("sr") ) {
+        mainName = "West Indies";
+    }
+
+      //for ua
+     if (!mainName && normalized.startsWith("un") ) {
+        mainName = "United Arab Emirates";
+    }
+
 
     if (!mainName) return "";
 

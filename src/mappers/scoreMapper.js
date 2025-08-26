@@ -1,13 +1,15 @@
 import { getOrderedTeams } from "../utils/teamNameUtils.js";
 import { formatDateAndTime } from "../utils/dateUtil.js";
-import { getRunRate,getRequiredRate,getTarget } from "../utils/runRateUtils.js";
-import { getRandomImage } from "../utils/scoreUtils.js";
+import { getRunRate, getRequiredRate, getTarget } from "../utils/runRateUtils.js";
+import { getRandomImage, getRandomTeamImage } from "../utils/scoreUtils.js";
+
+
 export function mapScore(data) {
 
     if (!data) return {}
 
     let teams = getOrderedTeams(data.score[0], data.teamInfo)
-  
+
 
     let score1 = `${data.score?.[0]?.r ?? '0'}/${data.score?.[0]?.w ?? '0'} (${data.score?.[0]?.o ?? '0'})`;
     let score2 = `${data.score?.[1]?.r ?? '0'}/${data.score?.[1]?.w ?? '0'} (${data.score?.[1]?.o ?? '0'})`;
@@ -23,19 +25,20 @@ export function mapScore(data) {
         tossChoice: data.tossChoice,
         team1: {
             name: teams[0].name,
-            img: teams[0].img,
+            img: getRandomTeamImage(teams[0].name),
             score: score1,
-            runRate : getRunRate(score1),
+            runRate: getRunRate(score1),
             batting: mapbattingScorecard(data.scorecard[0]?.batting),
             bowling: mapBowlingScorecard(data.scorecard[1]?.bowling),
         },
         team2: {
             name: teams[1].name,
-            img: teams[1].img,
+            // img: teams[1].img,
+            img: getRandomTeamImage(teams[1].name),
             score: score2,
-             runRate : getRunRate(score2),
-             target : getTarget(score1),
-             requiredRate : getRequiredRate(score2,getTarget(score1)),
+            runRate: getRunRate(score2),
+            target: getTarget(score1),
+            requiredRate: getRequiredRate(score2, getTarget(score1)),
             batting: mapbattingScorecard(data.scorecard[1]?.batting),
             bowling: mapBowlingScorecard(data.scorecard[0]?.bowling),
         }
@@ -48,7 +51,6 @@ export function mapScore(data) {
 function mapbattingScorecard(battings = []) {
     if (!battings || battings.length == 0) return []
     let battingArr = []
-    console.log('in mapper->',getRandomImage().img)
 
     for (let batting of battings) {
 

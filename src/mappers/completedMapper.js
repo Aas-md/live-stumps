@@ -2,11 +2,11 @@ import { getRandomTeamImage } from "../utils/scoreUtils";
 
 export default function mapCompletedmatches(matches) {
 
+    if(!matches || !matches.length)return []
+
     let matchesObj = [];
 
     for (let match of matches) {
-
-
 
         let team1Name = getTeamShortName(match.t1)
         let team2Name = getTeamShortName(match.t2)
@@ -34,8 +34,6 @@ export default function mapCompletedmatches(matches) {
                 img:team2Img,
                 score: match.t2s && match.t2s.trim() !== "" ? match.t2s : "0/0 (0.0)",
             },
-
-
 
         }
 
