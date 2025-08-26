@@ -2,7 +2,7 @@ import './App.css'
 import Footer from "./components/navbar/Footer.jsx"
 import Navbar from "./components/navbar/Navbar.jsx"
 import Homepage from "./pages/homepage/Homepage"
-import SchedulePage from './pages/schedule/schedulePage'
+import SchedulePage from './pages/schedule/SchedulePage'
 import PastPage from './pages/past/PastPage'
 import ScorePage from './pages/score/ScorePage'
 import ProfilePage from './pages/profilePage/ProfilePage.jsx'
