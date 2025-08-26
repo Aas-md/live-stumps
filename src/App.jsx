@@ -1,6 +1,6 @@
 import './App.css'
-import Footer from "./components/navbar/footer.jsx"
-import Navbar from "./components/navbar/navbar.jsx"
+import Footer from "./components/navbar/Footer.jsx"
+import Navbar from "./components/navbar/Navbar.jsx"
 import Homepage from "./pages/homepage/Homepage"
 import SchedulePage from './pages/schedule/schedulePage'
 import PastPage from './pages/past/PastPage'
