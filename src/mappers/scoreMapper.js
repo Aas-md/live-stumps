@@ -25,7 +25,7 @@ export function mapScore(data) {
         tossChoice: data.tossChoice,
         team1: {
             name: teams[0].name,
-            img: getRandomTeamImage(teams[0].name),
+            img: getRandomTeamImage(teams[0].name) || data[0].img,
             score: score1,
             runRate: getRunRate(score1),
             batting: mapbattingScorecard(data.scorecard[0]?.batting),
@@ -34,7 +34,7 @@ export function mapScore(data) {
         team2: {
             name: teams[1].name,
             // img: teams[1].img,
-            img: getRandomTeamImage(teams[1].name),
+            img: getRandomTeamImage(teams[1].name) || data[1].img,
             score: score2,
             runRate: getRunRate(score2),
             target: getTarget(score1),

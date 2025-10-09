@@ -121,6 +121,7 @@ export async function fetchUpcoming() {
         throw new Error("Invalid data format from API")
 
     let matches = filterUpcommingMatches(jsonResponse.data);
+    
     matches = mapupcomingMathces(matches)
 
     return matches

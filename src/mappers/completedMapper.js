@@ -7,11 +7,10 @@ export default function mapCompletedmatches(matches) {
     let matchesObj = [];
 
     for (let match of matches) {
-
-        let team1Name = getTeamShortName(match.t1)
-        let team2Name = getTeamShortName(match.t2)
-        let team1Img = getRandomTeamImage(team1Name) == "" ? match.t1img : getRandomTeamImage(team1Name)
-        let team2Img = getRandomTeamImage(team2Name) == "" ? match.t2img : getRandomTeamImage(team2Name)
+        console.log(match)
+     
+        let team1Img = getRandomTeamImage(match.t1) || match.t1img;
+        let team2Img = getRandomTeamImage(match.t2) || match.t2img;
 
         let curr = {
 
@@ -23,6 +22,7 @@ export default function mapCompletedmatches(matches) {
             matchType: match.matchType,
 
             team1: {
+                name : match.t1,
                 shortName: getTeamShortName(match.t1),
                 img: team1Img,
                 score: match.t1s && match.t1s.trim() !== "" ? match.t1s : "0/0 (0.0)",
@@ -30,6 +30,7 @@ export default function mapCompletedmatches(matches) {
             },
 
             team2: {
+                name : match.t1,
                 shortName: getTeamShortName(match.t2),
                 img:team2Img,
                 score: match.t2s && match.t2s.trim() !== "" ? match.t2s : "0/0 (0.0)",

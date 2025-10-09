@@ -27,14 +27,16 @@ export default function mapCurrentMathces(matches) {
 
       team1: {
         shortName: team1Name,
-        img: getRandomTeamImage(team1Name) == "" ? teams[0]?.img : getRandomTeamImage(team1Name),
-        score: score1
+        img: getRandomTeamImage(teams[0]?.name) == "" ? teams[0]?.img : getRandomTeamImage(teams[0]?.name),
+        score: score1,
+        name : teams[0]?.name
       },
 
       team2: {
         shortName: team2Name,
-        img: getRandomTeamImage(team2Name) == "" ? teams[1]?.img :  getRandomTeamImage(team2Name),
-        score: score2
+        img: getRandomTeamImage(teams[1]?.name) == "" ? teams[1]?.img :  getRandomTeamImage(teams[1]?.name),
+        score: score2,
+        name : teams[1]?.name
       },
 
     }

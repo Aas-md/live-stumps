@@ -1,49 +1,60 @@
+
+
 export default function sortMatches(matches) {
-  const teamPriority = [
+  const teams = [
     "India", "Pakistan", "Australia", "England", "South Africa",
-    "West Indies", "New Zealand", "Bangladesh", "Afghanistan", "Sri Lanka"
+    "West Indies", "New Zealand", "Bangladesh", "Afghanistan", "Sri Lanka",
+    "Ireland", "Zimbabwe", "Scotland", "Netherlands", "UEA", "Namibia", "Nepal", "Oman"
   ];
 
   const now = new Date();
 
-  function getTeamRank(match) {
-    // check if either team is in priority list
-    const t1 = teamPriority.indexOf(match.team1?.name);
-    const t2 = teamPriority.indexOf(match.team2?.name);
-
-    // agar dono hai to min(rank1, rank2) le lo
-    if (t1 !== -1 && t2 !== -1) return Math.min(t1, t2);
-    if (t1 !== -1) return t1;
-    if (t2 !== -1) return t2;
-
-    return Infinity; // not in top 10
-  }
 
   function isLive(match) {
-    return match.matchStarted && !match.matchEnded;
+    return match.matchStarted && !match.matchEnded
   }
 
   function getDateDiff(match) {
-    const matchDate = new Date(match.dateTimeGMT);
-    return Math.abs(matchDate - now); // nearest distance from current time
+    const matchDate = new Date(match?.dateTimeGMT)
+    return Math.abs(matchDate - now)
   }
 
-  matches.sort((a, b) => {
-    // 1. team priority
-    const rankA = getTeamRank(a);
-    const rankB = getTeamRank(b);
-    if (rankA !== rankB) return rankA - rankB;
 
-    // 2. live status
-    const liveA = isLive(a);
-    const liveB = isLive(b);
-    if (liveA !== liveB) return liveB - liveA;
+  let filteredMatches = matches.filter((match) => {
 
-    // 3. date proximity
-    const diffA = getDateDiff(a);
-    const diffB = getDateDiff(b);
-    return diffA - diffB;
+    for (let team of teams) {
+      if (match?.team1.name.toLowerCase().includes(team.toLowerCase()) || match?.team2.name.toLowerCase().includes(team.toLowerCase()))
+        return true
+    }
+  })
+
+  filteredMatches.sort((a, b) => {
+    if (
+      a.team1.name.toLowerCase() == 'india' || a.team2.name.toLowerCase() == 'india' ||
+      a.team1.name.toLowerCase() == 'pakistan' || a.team2.name.toLowerCase() == 'pakistan' ||
+      a.team1.name.toLowerCase() == 'australia' || a.team2.name.toLowerCase() == 'australia' ||
+      a.team1.name.toLowerCase() == 'england' || a.team2.name.toLowerCase() == 'england'
+    ) return -1;
+
+     if (
+    b.team1.name.toLowerCase() == 'india' || b.team2.name.toLowerCase() == 'india' ||
+    b.team1.name.toLowerCase() == 'pakistan' || b.team2.name.toLowerCase() == 'pakistan' ||
+    b.team1.name.toLowerCase() == 'australia' || b.team2.name.toLowerCase() == 'australia' ||
+    b.team1.name.toLowerCase() == 'england' || b.team2.name.toLowerCase() == 'england'
+  ) return 1;
+
+
+    if(isLive(a))return -1
+    if(isLive(b))return 1
+
+    let diffa = getDateDiff(a)
+    let diffb = getDateDiff(b)
+    if(diffa < diffb)return -1
+    return 1
+
+
   });
 
-  return matches;
+
+  return filteredMatches
 }
