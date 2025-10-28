@@ -34,7 +34,7 @@ export default function TeamScore({ team1, team2 }) {
                     <span>{team2?.target}</span>
                 </div>
                 <div className="target">
-                    <span >Required Run Rate : </span>
+                    <span >Required Rate : </span>
                     <span>{team2?.requiredRate}</span>
                 </div>
             </div>

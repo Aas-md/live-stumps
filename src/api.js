@@ -45,7 +45,6 @@ export async function fetchLiveMatches() {
         throw new Error("Invalid data format from API");
     }
 
-  
     let matches = mapCurrentMathces(data.data)
    
     return matches
