@@ -16,7 +16,7 @@ export function formatDateAndTime(dateStr) {
     timeZone: "Asia/Kolkata"
   });
 
-  return `${time} & ${date} IST`;
+  return `${time} & ${date} `;
 }
 
 

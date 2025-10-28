@@ -15,26 +15,18 @@ export default function BowlerRow({ player }) {
         <tr className="player-row" data-id={player?.bowler?.id} onClick={handleClick}>
             <td>
                 <div className="player-info">
-                    <div>
-                        {player?.img && !imgError ? (
-                            <img src={player.img} alt={player?.name || "Player"} height="24" width="24"
-                                onError={() => setImgError(true)} />
-                        ) : (
-                            <div className="no-img-scorepage"> <FaUser size={20} color="#999" /></div>
-                        )}
-
-                    </div>
+                    
                     <div className="player-name">
                         <span>{player?.bowler?.name}</span>
 
                     </div>
                 </div>
             </td>
-            <td>{player.o}</td>
+            <td><b>{player.o}</b></td>
             <td>{player.m}</td>
             <td>{player.r}</td>
-            <td>{player.w}</td>
-            <td>{player.eco}</td>
+            <td><b>{player.w}</b></td>
+            <td><b>{player.eco}</b></td>
             <td>{player.wd}</td>
         </tr>
     )

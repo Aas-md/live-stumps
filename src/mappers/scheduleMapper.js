@@ -1,3 +1,4 @@
+import { formatDateAndTime } from "../utils/dateUtil";
 import { getRandomTeamImage } from "../utils/scoreUtils";
 
 export default function mapupcomingMathces(matches) {
@@ -12,13 +13,13 @@ export default function mapupcomingMathces(matches) {
         let team1Img = getRandomTeamImage(match.t1) || match.t1img;
         let team2Img = getRandomTeamImage(match.t2) || match.t2img;
 
-        console.log(match.t2,team2Img)
         let curr = {
 
             id: match.id,
+            name: match.series, 
             matchStarted: false,
             matchEnded: false,
-            status: match.status,
+            status: `Match starts at ${formatDateAndTime(match.dateTimeGMT)}`,
             date: match.dateTimeGMT,
             matchType: match.matchType,
 

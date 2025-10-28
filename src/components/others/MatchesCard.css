@@ -106,9 +106,23 @@
     box-shadow: 2px 2px 1px lightgray;
     transform: translateY(-4px);
 }
-/* 
-.box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* button ko right side chahiye to */
+
+
+.card .status{
+    
+    font-weight: 600;
+    margin: 0.5rem 1rem;
+    
+}
+
+.card .card-header{
+    display: flex;
+    justify-content: space-between;
+    /* padding: 0.7rem 1rem; */
+}
+
+.card .card-header .status{
+    font-weight: 500;
+
+}
  

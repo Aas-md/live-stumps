@@ -7,7 +7,6 @@ export default function mapCompletedmatches(matches) {
     let matchesObj = [];
 
     for (let match of matches) {
-        console.log(match)
      
         let team1Img = getRandomTeamImage(match.t1) || match.t1img;
         let team2Img = getRandomTeamImage(match.t2) || match.t2img;
@@ -15,6 +14,7 @@ export default function mapCompletedmatches(matches) {
         let curr = {
 
             id: match.id,
+            name: match.series,
             matchStarted: true,
             matchEnded: true,
             status: match.status,

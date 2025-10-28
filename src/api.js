@@ -4,7 +4,7 @@ import { mapScore } from "./mappers/scoreMapper.js";
 import { mapPlayerProfileObj } from "./mappers/playerMapper.js";
 import { filterUpcommingMatches } from "./utils/upcomingMatchesUtil.js";
 import mapupcomingMathces from "./mappers/scheduleMapper.js";
-import { filterCompletedMatches } from "./utils/completedMatchesUtils.js";
+import { filterCompletedMatches, sortMatchesByDate } from "./utils/completedMatchesUtils.js";
 import mapCompletedmatches from "./mappers/completedMapper.js";
 import { filterRecentMatches } from "./utils/liveMatchesUtils.js";
 
@@ -45,8 +45,9 @@ export async function fetchLiveMatches() {
         throw new Error("Invalid data format from API");
     }
 
-
+  
     let matches = mapCurrentMathces(data.data)
+   
     return matches
 }
 
@@ -119,6 +120,7 @@ export async function fetchUpcoming() {
 
     if (!jsonResponse || !jsonResponse.data)
         throw new Error("Invalid data format from API")
+   
 
     let matches = filterUpcommingMatches(jsonResponse.data);
     
@@ -149,8 +151,8 @@ export async function fetchCompleted() {
         throw new Error("Invalid data format from API")
 
     let matches = filterCompletedMatches(jsonResponse.data);
-
-    matches = mapCompletedmatches(matches)
+    matches = sortMatchesByDate(matches)
+    matches = mapCompletedmatches(matches)  
 
     return matches
 

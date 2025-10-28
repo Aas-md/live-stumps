@@ -11,6 +11,7 @@ import ErrorBoundary from './utils/ErrorBoundary.jsx'
 
 
 
+
 <Routes>
   <Route path="/player/:id" element={<ProfilePage />} />
   <Route path="/score/:id" element={<ScorePage />} />

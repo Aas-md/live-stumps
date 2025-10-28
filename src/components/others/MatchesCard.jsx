@@ -4,12 +4,17 @@ import './MatchesCard.css'
 export default function MatchesCard({ match }) {
     const navigate = useNavigate();
 
-    let onCardClick = ()=>{
+    let onCardClick = () => {
         navigate(`/score/${match?.id}`);
     }
 
     return (
         <div className='card' onClick={onCardClick}>
+
+            <div className="card-header">
+                <p className={"status"}>{match.name}</p>
+                <p className="status">{match.matchType}</p> 
+            </div>
 
             <div className="box">
 
@@ -27,10 +32,15 @@ export default function MatchesCard({ match }) {
                     <img src={match.team2?.img} height="16px" width="24px" alt="icon" />
                     <span>{match.team2?.shortName}</span>
                 </div>
-                <div className="score">
+                <div className="score" >
                     <span>{match.team2?.score}</span>
                 </div>
             </div>
+
+            <p className={`status ${match.matchStarted &&  !match.matchEnded ? 'completed' : ''}`}>
+                {match.status}
+            </p>
+
 
             <hr></hr>
 

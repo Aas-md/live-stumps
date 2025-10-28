@@ -19,6 +19,7 @@ export default function mapCurrentMathces(matches) {
     let curr = {
 
       id: match.id,
+      name : match.name,
       matchStarted: match?.matchStarted,
       matchEnded: match?.matchEnded,
       status: match.status,

@@ -10,7 +10,7 @@ export default function Navbar() {
             <div className={styles.first}>
                 
                 <div className={styles.logo}>
-                    <h1 > LiveStumps</h1>
+                    <h1 onClick={(e)=>{e.preventDefault();navigate('/')}}> LiveStumps</h1>
                 </div>
 
                 <div className={styles.links}>

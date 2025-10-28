@@ -20,7 +20,7 @@ export default function BatsmanRow({ player }) {
         <tr className="player-row" data-id={player?.id} onClick={handleClick} >
             <td>
                 <div className="player-info">
-                    <div>
+                    {/* <div>
                         
                         {player?.img  && !imgError ?  (
                             <img src={player.img} alt={player?.name || "Player"} height="24" width="24" 
@@ -28,18 +28,18 @@ export default function BatsmanRow({ player }) {
                         ) : (
                             <div className="no-img-scorepage"> <FaUser size={20} color="#999" /></div>
                         )}
-                    </div>
+                    </div> */}
                     <div className="player-name">
                         <span>{player?.batsman?.name}</span>
                         <span>{player?.dismissalText}</span>
                     </div>
                 </div>
             </td>
-            <td>{player.r}</td>
+            <td><b>{player.r}</b></td>
             <td>{player.b}</td>
             <td>{player['4s']}</td>
             <td>{player['6s']}</td>
-            <td>{player.sr}</td>
+            <td><b>{player.sr}</b></td>
             <td>{player.dismissalText}</td>
         </tr>
     )

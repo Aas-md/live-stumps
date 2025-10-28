@@ -14,10 +14,13 @@ export function filterCompletedMatches(matches) {
   const now = new Date();
 
   return matches.filter(match => {
-    const matchDate = new Date(match.dateTimeGMT);
+    // const matchDate = new Date(match.dateTimeGMT);
+    // console.log("Match Date:", matchDate, "Now:", now);
 
-    // Check past
-    if (matchDate >= now) return false;
+    // // Check past
+    // if (matchDate >= now) return false;
+    console.log("Match Completed Status:", match);
+    if(match.ms !== 'result') return false;
 
     // Extract clean team names (remove [XXX] codes if present)
     const team1 = match.t1?.split("[")[0].trim();
@@ -25,5 +28,14 @@ export function filterCompletedMatches(matches) {
 
     // Check both teams are in whitelist
     return INTL_TEAMS.includes(team1) && INTL_TEAMS.includes(team2);
+  });
+}
+
+
+export function sortMatchesByDate(matches) {
+  return matches.sort((a, b) => {
+    const dateA = new Date(a.dateTimeGMT);
+    const dateB = new Date(b.dateTimeGMT);
+    return dateA - dateB;
   });
 }
