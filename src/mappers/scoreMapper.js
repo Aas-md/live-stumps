@@ -33,7 +33,7 @@ export function mapScore(data) {
         tossChoice: data.tossChoice,
         team1: {
             name: teams[0].name,
-            img: getRandomTeamImage(teams[0].name) || data[0].img,
+            img: getRandomTeamImage(teams[0].name) || data[0]?.img,
             score: score1,
             runRate: score1 == "N/A" ? "0.0" :  getRunRate(score1),
             batting: mapbattingScorecard(data.scorecard[0]?.batting),
@@ -42,14 +42,14 @@ export function mapScore(data) {
         team2: {
             name: teams[1].name,
             // img: teams[1].img,
-            img: getRandomTeamImage(teams[1].name) || data[1].img,
+            img: getRandomTeamImage(teams[1].name) || data[1]?.img,
             score: score2,
             runRate: score2 == "N/A" ? "0.0" : getRunRate(score2),
             target: score2 == "N/A" ? "" :  getTarget(score1),
             requiredRate:  score2 == "N/A" ? "" :  getRequiredRate(score2, getTarget(score1),data.matchType),
             batting: mapbattingScorecard(data.scorecard[1]?.batting),
             bowling: mapBowlingScorecard(data.scorecard[0]?.bowling),
-        }
+        }//jhg
     }
 
     return score
